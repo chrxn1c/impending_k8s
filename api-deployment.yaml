@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synergychat-api
+  labels:
+    app: synergychat-api # Will be used to select the pods that this deployment manages
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synergychat-api # This should match the label in metadata/labels/app
+  template:
+    metadata:
+      labels:
+        app: synergychat-api # Should match the label in metadata/labels/app. These labels is the way for k8s to know which pods belong to which deployments
+    spec:
+      containers:
+      - name: synergychat-api 
+        image: bootdotdev/synergychat-api:latest

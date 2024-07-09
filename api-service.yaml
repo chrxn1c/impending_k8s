@@ -9,4 +9,4 @@ spec:
   ports:
     - protocol: TCP # in order to use https
       port: 80 # port service is listening on
-      NodePort: 30080 # port to expose to the world outside the cluster 
+      nodePort: 30080 # port to expose to the world outside the cluster 

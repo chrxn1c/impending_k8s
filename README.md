@@ -1,5 +1,5 @@
 # Impending Kubernetes
-### This k8s cluster (using minikube) allows to reference [Synergy chat microservice application](https://github.com/bootdotdev/synergychat/tree/main#crawler-services)
+### This k8s cluster (using minikube) allows to interact with [Synergy chat microservice application](https://github.com/bootdotdev/synergychat/tree/main#crawler-services)
 In order to run this cluster do the following:
 - Clone this repository: `$ git clone https://github.com/chrxn1c/impending_k8s.git && cd impending_k8s`
 - Make sure docker and minikube are installed on your system ([docker_docs](https://docs.docker.com/engine/install/) [minikube_docs](https://minikube.sigs.k8s.io/docs/start/))

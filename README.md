@@ -6,4 +6,5 @@ In order to run this cluster do the following:
 - Start the minikube cluster and apply all .yaml files to the cluster: `$ minikube start && kubectl apply -f .`
 - Run `$ minikube tunnel -c` and find out to what IP minikube tunnels the traffic: looking for `route: 10.96.0.0/12 -> EXTERNAL_IP` in the output, you can stop the tunnelling after that
 - Edit your DNS configuration so that `synchat.internal` and `synchatapi.internal` correspond to `EXTERNAL_IP` (edit /etc/hosts in Debian's case)
-- Run `$ minikube tunnel -c` and go to `http://synchat.internal` (accessible) and `http://synchatapi.internal`
+- Run `$ minikube tunnel -c` and go to `http://synchat.internal` (accessible) and `http://synchatapi.internal` (should return 404 but /healthz endpoint should return 200)
+- Visit `http://synchat.internal` and type '/stats' in message field to ensure that API can communicate with Crawler application.

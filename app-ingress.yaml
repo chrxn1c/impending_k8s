@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations: # extra configuration for Ingress goes here
+    nginx.ingress.kubernetes.io/rewrite-target: / # we want to rewrite the target URL to / so that it will work with the current web application
+spec:
+  rules:
+    - host: synchat.internal # any traffic to synchat.internal domain name
+      http: # by this protocol
+        paths:
+          - path: / # by this path
+            pathType: Prefix # path in URI request has to START with / 
+                             # for more: https://yandex.cloud/ru/docs/application-load-balancer/k8s-ref/ingress
+            backend: # goes to the backend that has
+              service: # this service
+                name: web-service # with this label
+                port:
+                  number: 80 # to this port
+    - host: synchatapi.internal
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-service
+                port:
+                  number: 80
